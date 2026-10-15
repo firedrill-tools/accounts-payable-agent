@@ -1,0 +1,1 @@
+"""Synthetic accounts payable application."""

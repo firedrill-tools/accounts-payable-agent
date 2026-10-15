@@ -1,0 +1,5 @@
+Invoice INV-9901
+Vendor: Cedarline Equipment
+Purchase order: PO-990
+Due date: 2026-11-20
+Total due: USD 410.00

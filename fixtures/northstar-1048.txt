@@ -1,0 +1,7 @@
+Invoice INV-1048
+Vendor: Northstar Paper Supply
+Purchase order: PO-204
+Date: 2026-10-14
+Due date: 2026-11-13
+Paper supplies: USD 125.00
+Total due: USD 125.00
