@@ -34,3 +34,5 @@ The other commands are `show ID`, `reject ID --actor NAME`, `reconcile ID`, `add
 - The database holds source invoice text and operator decisions. This example uses synthetic text only; adapt data retention, access control and audit requirements before using real financial records.
 
 `uv run pytest -q` exercises an ADK runner with a local model stub plus the inbox, duplicate, mismatch, recovery and approval gates. It does not establish Gemini extraction accuracy or a live provider result. Those checks require provider access and measured output. Firedrill integration remains pending until the new released interface is qualified. Dependencies are locked in `uv.lock`.
+
+Explore related applications in the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog). Product and setup references: [Firedrill](https://firedrill.run/) and the [official developer documentation](https://docs.firedrill.run/). Use documentation matching the qualified release; this repository records its current integration limits above.
