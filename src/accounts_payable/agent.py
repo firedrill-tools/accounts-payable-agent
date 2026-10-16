@@ -11,15 +11,16 @@ from google.adk.apps import App
 from google.adk.models.base_llm import BaseLlm
 from google.adk.runners import InMemoryRunner
 from google.genai import types
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class InvoiceFacts(BaseModel):
+    model_config=ConfigDict(extra="forbid",frozen=True)
     vendor_name: str | None = None
     invoice_number: str | None = None
     po_number: str | None = None
     currency: str | None = None
-    total_minor: int | None = Field(default=None, ge=0)
+    total_minor: int | None = Field(default=None, ge=0, le=2**53-1, strict=True)
     due_date: str | None = Field(default=None, description="ISO date when explicit")
     concerns: list[str] = Field(default_factory=list)
 

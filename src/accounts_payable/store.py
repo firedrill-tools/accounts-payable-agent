@@ -61,6 +61,11 @@ class APStore:
                     action TEXT NOT NULL, actor TEXT NOT NULL, at TEXT NOT NULL
                 );
             """)
+            db.execute("BEGIN IMMEDIATE")
+            columns={row["name"] for row in db.execute("PRAGMA table_info(ledger)")}
+            if "po_number" not in columns:
+                db.execute("ALTER TABLE ledger ADD COLUMN po_number TEXT")
+            db.execute("UPDATE ledger SET po_number=(SELECT po_number FROM invoices WHERE invoices.invoice_id=ledger.invoice_id) WHERE po_number IS NULL")
 
     @contextmanager
     def _db(self) -> Iterator[sqlite3.Connection]:
@@ -84,7 +89,7 @@ class APStore:
 
     def set_po(self, po_number: str, vendor_id: str, currency: str, total_minor: int,
                active: bool = True) -> dict:
-        if not po_number.strip() or total_minor <= 0 or len(currency) != 3:
+        if not po_number.strip() or type(total_minor) is not int or not 0 < total_minor <= 2**53-1 or len(currency) != 3:
             raise ValueError("PO number, positive minor-unit total and ISO currency are required")
         with self._db() as db:
             db.execute("""
@@ -163,6 +168,12 @@ class APStore:
                     issues.append("purchase order currency mismatch")
                 if invoice["total_minor"] is not None and po["total_minor"] != invoice["total_minor"]:
                     issues.append("purchase order amount mismatch")
+                posted=db.execute("SELECT vendor_id,currency,total_minor FROM ledger WHERE po_number=?",(po["po_number"],)).fetchall()
+                if any(row["vendor_id"]!=po["vendor_id"] or row["currency"]!=po["currency"] for row in posted):
+                    issues.append("purchase order identity changed after prior posting")
+                remaining=po["total_minor"]-sum(row["total_minor"] for row in posted)
+                if invoice["total_minor"] is not None and invoice["total_minor"]>remaining:
+                    issues.append("purchase order remaining balance exceeded")
 
         if vendor_id and invoice["invoice_number"]:
             duplicate = db.execute("""
@@ -184,6 +195,7 @@ class APStore:
         return result
 
     def record_facts(self, source_id: str, facts: InvoiceFacts) -> dict:
+        facts=InvoiceFacts.model_validate(facts.model_dump())
         with self._db() as db:
             db.execute("BEGIN IMMEDIATE")
             if not db.execute("SELECT 1 FROM inbox WHERE source_id=?", (source_id,)).fetchone():
@@ -266,15 +278,15 @@ class APStore:
             invoice = self._checked(db, invoice_id, ("approved",))
             status, issues, vendor_id = self._assess(db, invoice)
             if status != "pending_approval":
-                db.execute("UPDATE invoices SET status='needs_review', issues_json=?, approval_actor=NULL WHERE invoice_id=?",
-                           (json.dumps(issues), invoice_id))
+                db.execute("UPDATE invoices SET status=?, issues_json=?, approval_actor=NULL WHERE invoice_id=?",
+                           (status, json.dumps(issues), invoice_id))
                 return self._invoice(db.execute("SELECT * FROM invoices WHERE invoice_id=?",
                                                 (invoice_id,)).fetchone())
             db.execute("""
-                INSERT INTO ledger (invoice_id,vendor_id,invoice_number,currency,total_minor,posted_at)
-                VALUES (?,?,?,?,?,?)
+                INSERT INTO ledger (invoice_id,vendor_id,invoice_number,currency,total_minor,posted_at,po_number)
+                VALUES (?,?,?,?,?,?,?)
             """, (invoice_id, vendor_id, invoice["invoice_number"], invoice["currency"],
-                  invoice["total_minor"], _now()))
+                  invoice["total_minor"], _now(), invoice["po_number"]))
             db.execute("UPDATE invoices SET status='posted' WHERE invoice_id=?", (invoice_id,))
             db.execute("INSERT INTO actions (invoice_id,action,actor,at) VALUES (?,?,?,?)",
                        (invoice_id, "posted", invoice["approval_actor"], _now()))

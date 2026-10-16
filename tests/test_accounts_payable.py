@@ -132,3 +132,52 @@ def test_rejection_blocks_post_and_missing_fields_never_approve(store):
     assert "missing invoice number" in incomplete["issues"]
     assert "missing or nonpositive total" in incomplete["issues"]
     assert store.ledger_entries() == []
+
+
+@pytest.mark.parametrize('value',[True,12500.0])
+def test_minor_units_are_strict_integers_not_coerced_values(value):
+    with pytest.raises(ValueError):InvoiceFacts(total_minor=value)
+
+
+def test_two_approved_invoices_cannot_bill_the_same_purchase_order_twice(store):
+    first=record(store,'mail-a',invoice_number='INV-A');second=record(store,'mail-b',invoice_number='INV-B')
+    store.approve(first['invoice_id'],'Morgan');store.approve(second['invoice_id'],'Alex')
+    assert store.post(first['invoice_id'])['status']=='posted'
+    blocked=store.post(second['invoice_id'])
+    assert blocked['status']=='needs_review' and blocked['approval_actor'] is None
+    assert 'purchase order remaining balance exceeded' in blocked['issues']
+    assert sum(entry['total_minor'] for entry in store.ledger_entries())==12500
+    assert store.ledger_entries()[0]['po_number']=='PO-204'
+    third=record(store,'mail-c',invoice_number='INV-C')
+    assert third['status']=='needs_review' and 'purchase order remaining balance exceeded' in third['issues']
+
+
+def test_concurrent_posting_rechecks_remaining_po_balance_inside_the_transaction(store):
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    invoices=[record(store,f'mail-{index}',invoice_number=f'INV-{index}') for index in (1,2)]
+    for invoice in invoices:store.approve(invoice['invoice_id'],'Human operator')
+    ready=threading.Barrier(2)
+    def post(invoice):ready.wait();return store.post(invoice['invoice_id'])
+    with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(post,invoices))
+    assert sorted(invoice['status'] for invoice in results)==['needs_review','posted']
+    assert len(store.ledger_entries())==1 and sum(entry['total_minor'] for entry in store.ledger_entries())==12500
+
+
+def test_po_identity_change_after_prior_posting_does_not_mix_vendor_or_currency_budgets(store):
+    first=record(store,'mail-first');store.approve(first['invoice_id'],'Morgan');store.post(first['invoice_id'])
+    store.set_po('PO-204','vendor-orbit','EUR',12500)
+    second=record(store,'mail-second',vendor_name='Orbit Facilities',invoice_number='ORBIT-NEW',currency='EUR')
+    assert second['status']=='needs_review' and 'purchase order identity changed after prior posting' in second['issues']
+    with pytest.raises(ValueError,match='expected pending_approval'):store.approve(second['invoice_id'],'Alex')
+    assert len(store.ledger_entries())==1 and store.ledger_entries()[0]['currency']=='USD'
+
+
+def test_legacy_ledger_rows_gain_immutable_po_binding_without_losing_posted_history(store):
+    original=record(store,'legacy-mail');store.approve(original['invoice_id'],'Human reviewer');store.post(original['invoice_id'])
+    entry=store.ledger_entries()[0];history=store.actions(original['invoice_id'])
+    with store._db() as db:db.execute('ALTER TABLE ledger DROP COLUMN po_number')
+    upgraded=APStore(store.path)
+    assert upgraded.ledger_entries()[0]==entry and upgraded.actions(original['invoice_id'])==history
+    next_invoice=record(upgraded,'new-mail',invoice_number='NEW-AFTER-MIGRATION')
+    assert next_invoice['status']=='needs_review' and 'purchase order remaining balance exceeded' in next_invoice['issues']
