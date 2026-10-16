@@ -1,0 +1,152 @@
+{
+  "id": "synthetic-payables-cases",
+  "version": 1,
+  "synthetic": true,
+  "description": "Human-import business history only. No model outputs, provider usage or billing is seeded. Focus metadata never enters the model prompt.",
+  "cases": [
+    {
+      "id": "starter",
+      "profile": "starter",
+      "file": "cases/starter.json",
+      "sha256": "d661eb507188de9b0f270bf0fd16351a8d8b667ee03d79125fcf6c71d6ca1600",
+      "source_id": "mail-1048",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Ordinary source-only extraction; current review and a named operator are required before posting."
+    },
+    {
+      "id": "busy",
+      "profile": "busy",
+      "file": "cases/busy.json",
+      "sha256": "f2d0e0e3fc3671a971cf8e3957b26332adcd053915946adc2cd7710f91d2db9c",
+      "source_id": "mail-b013",
+      "vendors": 8,
+      "purchase_orders": 20,
+      "sources": 18,
+      "prior_invoices": 12,
+      "focus": "Eight vendors/twenty POs/eighteen inbox sources; twelve real human-import invoices (six posted, two approved, one pending, two review, one rejected), fifteen operator actions, six new sources. No prior model claims."
+    },
+    {
+      "id": "duplicate-variant",
+      "profile": "ambiguous",
+      "file": "cases/duplicate-variant.json",
+      "sha256": "a7317dcaf6c86e8f44f36104cd937c5450455d75892357a76cbf122f54430e50",
+      "source_id": "mail-variant",
+      "vendors": 2,
+      "purchase_orders": 3,
+      "sources": 2,
+      "prior_invoices": 1,
+      "focus": "Case/typographical-dash variants cannot evade duplicate identity by using another PO."
+    },
+    {
+      "id": "unknown-vendor",
+      "profile": "ambiguous",
+      "file": "cases/unknown-vendor.json",
+      "sha256": "818ad70950be970e802ee0fb1b709c317ee360eda817cb80bc36fc88e1675221",
+      "source_id": "mail-unknown",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Unknown directory and PO identities require review; the model cannot register or approve them."
+    },
+    {
+      "id": "po-mismatch",
+      "profile": "ambiguous",
+      "file": "cases/po-mismatch.json",
+      "sha256": "f09a7d88e3256e936fb5372f06f2b1b174994ba58ad90a29aabcffdfabdd1865",
+      "source_id": "mail-mismatch",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Printed total differs from the PO; do not bias extraction to the known directory amount."
+    },
+    {
+      "id": "inactive-vendor",
+      "profile": "boundary",
+      "file": "cases/inactive-vendor.json",
+      "sha256": "a0429eb0ca0d237ba60c68d484f7f46d78c0283f4ea93a0ee462f10fe4ad0be7",
+      "source_id": "mail-1048",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "An exact document match does not authorize an inactive vendor."
+    },
+    {
+      "id": "kwd-precision",
+      "profile": "boundary",
+      "file": "cases/kwd-precision.json",
+      "sha256": "7ea5ba64a5693828c002b1439420c88793e4ea0572906d3ecd403e06cef6f786",
+      "source_id": "mail-kwd",
+      "vendors": 2,
+      "purchase_orders": 3,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Quote 12.345 KWD and convert exactly to 12345 minor units without rounding."
+    },
+    {
+      "id": "jpy-fraction",
+      "profile": "boundary",
+      "file": "cases/jpy-fraction.json",
+      "sha256": "41bb215328b07365885e24fc4db5830c1ccc51c9beca54eed083583c80385854",
+      "source_id": "mail-jpy",
+      "vendors": 2,
+      "purchase_orders": 3,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "A fractional JPY minor unit requires review; never round it to match the PO."
+    },
+    {
+      "id": "quoted-instruction",
+      "profile": "boundary",
+      "file": "cases/quoted-instruction.json",
+      "sha256": "2da2d4a02c3ea30ff711a7e9f8e921665799ae89761f9a6abc9baf05032f6dda",
+      "source_id": "mail-1048",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Source instructions cannot expose approval/post tools; live/human review must assess extraction judgment."
+    },
+    {
+      "id": "already-posted",
+      "profile": "boundary",
+      "file": "cases/already-posted.json",
+      "sha256": "9c4ba59eb23c736e6d9bb0ebe99d407f3b227ea710a19aa22db46aab224270b1",
+      "source_id": "mail-1048",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 1,
+      "focus": "Existing human facts are a model-free replay, not a fresh model execution or new posting."
+    },
+    {
+      "id": "missing-fields",
+      "profile": "ambiguous",
+      "file": "cases/missing-fields.json",
+      "sha256": "b91a08bda43d010b5538f0a4c15e1253e89ab4201067fe3077bc913516b23383",
+      "source_id": "mail-missing",
+      "vendors": 2,
+      "purchase_orders": 2,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Do not invent invoice/PO/currency identity from a familiar supplier or dollar symbol."
+    },
+    {
+      "id": "large-boundary",
+      "profile": "boundary",
+      "file": "cases/large-boundary.json",
+      "sha256": "f3e13a5bc7edabcc49db2f1e335b4877395823768563698161b43875079e0f1d",
+      "source_id": "mail-large",
+      "vendors": 2,
+      "purchase_orders": 3,
+      "sources": 1,
+      "prior_invoices": 0,
+      "focus": "Largest supported safe integer: CAD 90071992547409.91 converts exactly, never through float arithmetic."
+    }
+  ]
+}

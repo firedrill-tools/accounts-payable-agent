@@ -1,0 +1,475 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "vendor-01",
+      "name": "Northstar Paper Supply",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-02",
+      "name": "Orbit Facilities",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-03",
+      "name": "Harbor Screen Works",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-04",
+      "name": "Cedarline Equipment",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-05",
+      "name": "Aster Office Goods",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-06",
+      "name": "Maple Cloud Hosting",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-07",
+      "name": "Tideway Maintenance",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-08",
+      "name": "Juniper Training",
+      "active": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_number": "PO-B001",
+      "vendor_id": "vendor-01",
+      "currency": "USD",
+      "total_minor": 10137,
+      "active": true
+    },
+    {
+      "po_number": "PO-B002",
+      "vendor_id": "vendor-02",
+      "currency": "CAD",
+      "total_minor": 10274,
+      "active": true
+    },
+    {
+      "po_number": "PO-B003",
+      "vendor_id": "vendor-03",
+      "currency": "EUR",
+      "total_minor": 10411,
+      "active": true
+    },
+    {
+      "po_number": "PO-B004",
+      "vendor_id": "vendor-04",
+      "currency": "GBP",
+      "total_minor": 10548,
+      "active": true
+    },
+    {
+      "po_number": "PO-B005",
+      "vendor_id": "vendor-05",
+      "currency": "JPY",
+      "total_minor": 10685,
+      "active": true
+    },
+    {
+      "po_number": "PO-B006",
+      "vendor_id": "vendor-06",
+      "currency": "KWD",
+      "total_minor": 10822,
+      "active": true
+    },
+    {
+      "po_number": "PO-B007",
+      "vendor_id": "vendor-07",
+      "currency": "USD",
+      "total_minor": 10959,
+      "active": true
+    },
+    {
+      "po_number": "PO-B008",
+      "vendor_id": "vendor-08",
+      "currency": "CAD",
+      "total_minor": 11096,
+      "active": true
+    },
+    {
+      "po_number": "PO-B009",
+      "vendor_id": "vendor-01",
+      "currency": "EUR",
+      "total_minor": 11233,
+      "active": true
+    },
+    {
+      "po_number": "PO-B010",
+      "vendor_id": "vendor-02",
+      "currency": "GBP",
+      "total_minor": 11370,
+      "active": true
+    },
+    {
+      "po_number": "PO-B011",
+      "vendor_id": "vendor-03",
+      "currency": "JPY",
+      "total_minor": 11507,
+      "active": true
+    },
+    {
+      "po_number": "PO-B012",
+      "vendor_id": "vendor-04",
+      "currency": "KWD",
+      "total_minor": 11644,
+      "active": true
+    },
+    {
+      "po_number": "PO-B013",
+      "vendor_id": "vendor-05",
+      "currency": "USD",
+      "total_minor": 11781,
+      "active": true
+    },
+    {
+      "po_number": "PO-B014",
+      "vendor_id": "vendor-06",
+      "currency": "CAD",
+      "total_minor": 11918,
+      "active": true
+    },
+    {
+      "po_number": "PO-B015",
+      "vendor_id": "vendor-07",
+      "currency": "EUR",
+      "total_minor": 12055,
+      "active": true
+    },
+    {
+      "po_number": "PO-B016",
+      "vendor_id": "vendor-08",
+      "currency": "GBP",
+      "total_minor": 12192,
+      "active": true
+    },
+    {
+      "po_number": "PO-B017",
+      "vendor_id": "vendor-01",
+      "currency": "JPY",
+      "total_minor": 12329,
+      "active": true
+    },
+    {
+      "po_number": "PO-B018",
+      "vendor_id": "vendor-02",
+      "currency": "KWD",
+      "total_minor": 12466,
+      "active": true
+    },
+    {
+      "po_number": "PO-B019",
+      "vendor_id": "vendor-03",
+      "currency": "USD",
+      "total_minor": 12603,
+      "active": true
+    },
+    {
+      "po_number": "PO-B020",
+      "vendor_id": "vendor-04",
+      "currency": "CAD",
+      "total_minor": 12740,
+      "active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "mail-b001",
+      "body": "Invoice B-INV-1001\nVendor: Northstar Paper Supply\nPurchase order: PO-B001\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: USD 101.37\n"
+    },
+    {
+      "source_id": "mail-b002",
+      "body": "Invoice B-INV-1002\nVendor: Orbit Facilities\nPurchase order: PO-B002\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: CAD 102.74\n"
+    },
+    {
+      "source_id": "mail-b003",
+      "body": "Invoice B-INV-1003\nVendor: Harbor Screen Works\nPurchase order: PO-B003\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: EUR 104.11\n"
+    },
+    {
+      "source_id": "mail-b004",
+      "body": "Invoice B-INV-1004\nVendor: Cedarline Equipment\nPurchase order: PO-B004\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: GBP 105.48\n"
+    },
+    {
+      "source_id": "mail-b005",
+      "body": "Invoice B-INV-1005\nVendor: Aster Office Goods\nPurchase order: PO-B005\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: JPY 10685\n"
+    },
+    {
+      "source_id": "mail-b006",
+      "body": "Invoice B-INV-1006\nVendor: Maple Cloud Hosting\nPurchase order: PO-B006\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: KWD 10.822\n"
+    },
+    {
+      "source_id": "mail-b007",
+      "body": "Invoice B-INV-1007\nVendor: Tideway Maintenance\nPurchase order: PO-B007\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: USD 109.59\n"
+    },
+    {
+      "source_id": "mail-b008",
+      "body": "Invoice B-INV-1008\nVendor: Juniper Training\nPurchase order: PO-B008\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: CAD 110.96\n"
+    },
+    {
+      "source_id": "mail-b009",
+      "body": "Invoice B-INV-1009\nVendor: Northstar Paper Supply\nPurchase order: PO-B009\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: EUR 112.33\n"
+    },
+    {
+      "source_id": "mail-b010",
+      "body": "Invoice B-INV-1010\nVendor: Orbit Facilities\nPurchase order: PO-B010\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: GBP 113.70\n"
+    },
+    {
+      "source_id": "mail-b011",
+      "body": "Invoice B-INV-1011\nVendor: Unregistered Equipment Company\nPurchase order: PO-B011\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: JPY 11507\n"
+    },
+    {
+      "source_id": "mail-b012",
+      "body": "Invoice B-INV-1012\nVendor: Cedarline Equipment\nPurchase order: PO-B012\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: KWD 11.644\n"
+    },
+    {
+      "source_id": "mail-b013",
+      "body": "Invoice B-INV-1013\nVendor: Aster Office Goods\nPurchase order: PO-B013\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: USD 117.81\n"
+    },
+    {
+      "source_id": "mail-b014",
+      "body": "Invoice B-INV-1014\nVendor: Maple Cloud Hosting\nPurchase order: PO-B014\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: CAD 119.18\n"
+    },
+    {
+      "source_id": "mail-b015",
+      "body": "Invoice B-INV-1015\nVendor: Tideway Maintenance\nPurchase order: PO-B015\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: EUR 120.55\n"
+    },
+    {
+      "source_id": "mail-b016",
+      "body": "Invoice B-INV-1016\nVendor: Juniper Training\nPurchase order: PO-B016\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: GBP 121.92\n"
+    },
+    {
+      "source_id": "mail-b017",
+      "body": "Invoice B-INV-1017\nVendor: Northstar Paper Supply\nPurchase order: PO-B017\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: JPY 12329\n"
+    },
+    {
+      "source_id": "mail-b018",
+      "body": "Invoice B-INV-1018\nVendor: Orbit Facilities\nPurchase order: PO-B018\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: KWD 12.466\n"
+    }
+  ],
+  "prior_invoices": [
+    {
+      "source_id": "mail-b001",
+      "facts": {
+        "vendor_name": "Northstar Paper Supply",
+        "invoice_number": "B-INV-1001",
+        "po_number": "PO-B001",
+        "currency": "USD",
+        "total_minor": 10137,
+        "total_text": "101.37",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:01:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b002",
+      "facts": {
+        "vendor_name": "Orbit Facilities",
+        "invoice_number": "B-INV-1002",
+        "po_number": "PO-B002",
+        "currency": "CAD",
+        "total_minor": 10274,
+        "total_text": "102.74",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:02:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b003",
+      "facts": {
+        "vendor_name": "Harbor Screen Works",
+        "invoice_number": "B-INV-1003",
+        "po_number": "PO-B003",
+        "currency": "EUR",
+        "total_minor": 10411,
+        "total_text": "104.11",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:03:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b004",
+      "facts": {
+        "vendor_name": "Cedarline Equipment",
+        "invoice_number": "B-INV-1004",
+        "po_number": "PO-B004",
+        "currency": "GBP",
+        "total_minor": 10548,
+        "total_text": "105.48",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:04:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b005",
+      "facts": {
+        "vendor_name": "Aster Office Goods",
+        "invoice_number": "B-INV-1005",
+        "po_number": "PO-B005",
+        "currency": "JPY",
+        "total_minor": 10685,
+        "total_text": "10685",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:05:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b006",
+      "facts": {
+        "vendor_name": "Maple Cloud Hosting",
+        "invoice_number": "B-INV-1006",
+        "po_number": "PO-B006",
+        "currency": "KWD",
+        "total_minor": 10822,
+        "total_text": "10.822",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:06:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b007",
+      "facts": {
+        "vendor_name": "Tideway Maintenance",
+        "invoice_number": "B-INV-1007",
+        "po_number": "PO-B007",
+        "currency": "USD",
+        "total_minor": 10959,
+        "total_text": "109.59",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "approved",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:07:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b008",
+      "facts": {
+        "vendor_name": "Juniper Training",
+        "invoice_number": "B-INV-1008",
+        "po_number": "PO-B008",
+        "currency": "CAD",
+        "total_minor": 11096,
+        "total_text": "110.96",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "approved",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:08:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b009",
+      "facts": {
+        "vendor_name": "Northstar Paper Supply",
+        "invoice_number": "B-INV-1009",
+        "po_number": "PO-B009",
+        "currency": "EUR",
+        "total_minor": 11233,
+        "total_text": "112.33",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "pending_approval",
+      "actor": null,
+      "at": "2026-10-15T09:09:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b010",
+      "facts": {
+        "vendor_name": "Orbit Facilities",
+        "invoice_number": "B-INV-1010",
+        "po_number": "PO-B010",
+        "currency": "GBP",
+        "total_minor": 11370,
+        "total_text": "113.70",
+        "due_date": "2026-11-13",
+        "concerns": [
+          "A line item was unreadable in the imported human review."
+        ]
+      },
+      "status": "needs_review",
+      "actor": null,
+      "at": "2026-10-15T09:10:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b011",
+      "facts": {
+        "vendor_name": "Unregistered Equipment Company",
+        "invoice_number": "B-INV-1011",
+        "po_number": "PO-B011",
+        "currency": "JPY",
+        "total_minor": 11507,
+        "total_text": "11507",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "needs_review",
+      "actor": null,
+      "at": "2026-10-15T09:11:00Z",
+      "origin": "human_import"
+    },
+    {
+      "source_id": "mail-b012",
+      "facts": {
+        "vendor_name": "Cedarline Equipment",
+        "invoice_number": "B-INV-1012",
+        "po_number": "PO-B012",
+        "currency": "KWD",
+        "total_minor": 11644,
+        "total_text": "11.644",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "rejected",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:12:00Z",
+      "origin": "human_import"
+    }
+  ],
+  "synthetic": true,
+  "dataset": {
+    "id": "synthetic-payables-cases",
+    "version": 1,
+    "profile": "busy",
+    "case_id": "busy"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "vendor-northstar",
+      "name": "Northstar Paper Supply",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-orbit",
+      "name": "Orbit Facilities",
+      "active": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_number": "PO-204",
+      "vendor_id": "vendor-northstar",
+      "currency": "USD",
+      "total_minor": 12500,
+      "active": true
+    },
+    {
+      "po_number": "PO-208",
+      "vendor_id": "vendor-orbit",
+      "currency": "USD",
+      "total_minor": 85000,
+      "active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "mail-missing",
+      "body": "Vendor: Northstar Paper Supply\nInvoice number and PO: unreadable\nTotal: $125.00\nCurrency is not explicitly identified.\n"
+    }
+  ],
+  "prior_invoices": [],
+  "synthetic": true,
+  "dataset": {
+    "id": "synthetic-payables-cases",
+    "version": 1,
+    "profile": "ambiguous",
+    "case_id": "missing-fields"
+  }
+}

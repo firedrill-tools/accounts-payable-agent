@@ -1,18 +1,19 @@
 # Accounts payable requirement audit
 
-## Corrected first ledger gaps
+## Completed independent work
 
-- Two different invoice numbers each matched and posted the full USD 12500-minor-unit PO-204, producing 25000 posted against a 12500 order. Assessment now sums the immutable PO-bound ledger, and approval/post recheck remaining balance. Concurrent approved invoices can post only within the PO total; the loser returns to review with approval cleared.
-- Ledger rows now retain po_number at posting. Legacy rows are backfilled from their immutable invoice link in a serialized migration, preserving timestamps/actions. A changed PO vendor/currency after prior posting requires review instead of mixing budgets across identities.
-- InvoiceFacts accepted true as 1 and 12500.0 as 12500. Facts now forbid extra fields and require safe, strict integer minor units; PO admin totals and record_facts revalidation retain that boundary. These checks do not establish extraction accuracy.
-
-## Next independent work
-
-1. Full source/fact/currency/date/vendor/PO schemas, exact minor-unit conversion and current identity/duplicate rules, private SQLite state and coherent immutable approval/ledger evidence. Audit source idempotency/reprocessing and uncertain post recovery.
-2. Actual native ADK/Gemini HTTP completion, raw usage/failure evidence, explicit Developer API model/key/endpoint, scoped SDK/model/runner/session/client ownership, cancellation/timeout/request bounds and cleanup. Current runner tests use an injected BaseLlm stub; the model must remain unable to approve or post.
-3. Hash-bound starter/busy/ambiguous/boundary invoice/vendor/PO/ledger state, named human import history, private exclusive initialization/reset and task-only model context. No fake provider usage or quality results.
-4. Actual CLI HTTP/error/signal proof, fresh locked wheel/sdist, exact-head CI and catalog record.
+1. Reproduced two distinct invoices posting 25000 against one 12500 PO. Bound each ledger row to its original PO, recheck remaining balance/vendor/currency inside approval/post transactions, and preserve migrated legacy history. Strict safe integer facts/PO amounts reject bools/floats.
+2. Reproduced case/dash invoice variants posting via different POs. Added canonical vendor/invoice identity with ambiguous directory rejection, immutable source/fact hashes and current review fingerprints. Approval snapshots include source/facts, vendor/PO revisions and prior PO ledger. Changed state invalidates approval; exact post recovery adds no row/action.
+3. Reproduced native ADK accepting typed facts with unfinished/absent completion. Actual owned ADK/Gemini HTTP now requires one STOP text candidate before parsing. Original bodies/unknown fields/IDs/status/usage survive success and failure; no retries, one generation, explicit Developer API config and bounded deadline/request/output. Scoped session/runner/SDK/HTTP cleanup runs on startup errors, cancellation and deadlines.
+4. Moved exact money conversion into application code: model quotes decimal total, six explicit ISO currency exponents, no rounding or float arithmetic, safe range. Normalized source coverage clears unsupported facts/dates and flags review; source occurrence does not prove semantic correctness.
+5. Added durable per-source extraction owners, source/token rechecks and cancellation/deadline guards before commit. Concurrent same-source work fails before a second model; other sources proceed. Recording/commit acknowledgement faults retain actual state and require inspection, never a blind mutation retry. Cached facts are model-free recovery.
+6. Added twelve deterministic hash-bound cases/four profiles, including coherent busy business history and exact currency/duplicate/unknown/mismatch/instruction/recovery boundaries. New databases are exclusive/private; imported human rows have no provider claims. Actual native busy prompt includes only the selected source.
+7. Added separate JSON CLI review/approval/post commands, exact stopped-owner recovery, real loopback SDK/error/SIGINT/SIGTERM checks, pinned direct dependencies and bundled data. CI checks deterministic generation, all tests and fresh locked wheel/sdist console/module usage outside checkout.
 
 ## External gates parked
 
-Owner-supplied Gemini model/key/budget and human extraction review, new official Firedrill release/persisted ordinary and negative/recovery scenarios, publication and license choice. All data and ledger actions stay synthetic; this app does not move money or use production accounting records. Continue independent implementation.
+- Owner-supplied Gemini model/key/budget and human review of actual extraction quality/behavior. Offline controlled SDK/HTTP checks are not live model results.
+- New official Firedrill release/contract, followed by the thin integration and persisted ordinary, negative, recovery and campaign evidence. Never use the retired interface or invent replacement APIs.
+- Publication, licensing and any real accounting/identity/access/retention decisions. This private synthetic example moves no money.
+
+Continue the portfolio's independent work while these inputs are pending.

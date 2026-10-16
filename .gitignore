@@ -5,3 +5,7 @@ __pycache__/
 *.db
 *.db-*
 .env
+dist/
+.runs/
+*.sqlite
+*.sqlite-*

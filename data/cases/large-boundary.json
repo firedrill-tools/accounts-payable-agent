@@ -1,0 +1,51 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "vendor-northstar",
+      "name": "Northstar Paper Supply",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-orbit",
+      "name": "Orbit Facilities",
+      "active": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_number": "PO-204",
+      "vendor_id": "vendor-northstar",
+      "currency": "USD",
+      "total_minor": 12500,
+      "active": true
+    },
+    {
+      "po_number": "PO-208",
+      "vendor_id": "vendor-orbit",
+      "currency": "USD",
+      "total_minor": 85000,
+      "active": true
+    },
+    {
+      "po_number": "PO-LARGE",
+      "vendor_id": "vendor-northstar",
+      "currency": "CAD",
+      "total_minor": 9007199254740991,
+      "active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "mail-large",
+      "body": "Invoice LARGE-001\nVendor: Northstar Paper Supply\nPurchase order: PO-LARGE\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: CAD 90071992547409.91\n"
+    }
+  ],
+  "prior_invoices": [],
+  "synthetic": true,
+  "dataset": {
+    "id": "synthetic-payables-cases",
+    "version": 1,
+    "profile": "boundary",
+    "case_id": "large-boundary"
+  }
+}

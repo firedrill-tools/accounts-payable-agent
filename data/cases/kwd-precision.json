@@ -1,0 +1,51 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "vendor-northstar",
+      "name": "Northstar Paper Supply",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-orbit",
+      "name": "Orbit Facilities",
+      "active": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_number": "PO-204",
+      "vendor_id": "vendor-northstar",
+      "currency": "USD",
+      "total_minor": 12500,
+      "active": true
+    },
+    {
+      "po_number": "PO-208",
+      "vendor_id": "vendor-orbit",
+      "currency": "USD",
+      "total_minor": 85000,
+      "active": true
+    },
+    {
+      "po_number": "PO-KWD",
+      "vendor_id": "vendor-orbit",
+      "currency": "KWD",
+      "total_minor": 12345,
+      "active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "mail-kwd",
+      "body": "Invoice KWD-100\nVendor: Orbit Facilities\nPurchase order: PO-KWD\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: KWD 12.345\n"
+    }
+  ],
+  "prior_invoices": [],
+  "synthetic": true,
+  "dataset": {
+    "id": "synthetic-payables-cases",
+    "version": 1,
+    "profile": "boundary",
+    "case_id": "kwd-precision"
+  }
+}

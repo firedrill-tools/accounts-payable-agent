@@ -1,0 +1,62 @@
+{
+  "vendors": [
+    {
+      "vendor_id": "vendor-northstar",
+      "name": "Northstar Paper Supply",
+      "active": true
+    },
+    {
+      "vendor_id": "vendor-orbit",
+      "name": "Orbit Facilities",
+      "active": true
+    }
+  ],
+  "purchase_orders": [
+    {
+      "po_number": "PO-204",
+      "vendor_id": "vendor-northstar",
+      "currency": "USD",
+      "total_minor": 12500,
+      "active": true
+    },
+    {
+      "po_number": "PO-208",
+      "vendor_id": "vendor-orbit",
+      "currency": "USD",
+      "total_minor": 85000,
+      "active": true
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "mail-1048",
+      "body": "Invoice INV-1048\nVendor: Northstar Paper Supply\nPurchase order: PO-204\nDate: 2026-10-14\nDue date: 2026-11-13\nTotal due: USD 125.00\n"
+    }
+  ],
+  "prior_invoices": [
+    {
+      "source_id": "mail-1048",
+      "facts": {
+        "vendor_name": "Northstar Paper Supply",
+        "invoice_number": "INV-1048",
+        "po_number": "PO-204",
+        "currency": "USD",
+        "total_minor": 12500,
+        "total_text": "125.00",
+        "due_date": "2026-11-13",
+        "concerns": []
+      },
+      "status": "posted",
+      "actor": "Casey Import Reviewer",
+      "at": "2026-10-15T09:00:00Z",
+      "origin": "human_import"
+    }
+  ],
+  "synthetic": true,
+  "dataset": {
+    "id": "synthetic-payables-cases",
+    "version": 1,
+    "profile": "boundary",
+    "case_id": "already-posted"
+  }
+}
