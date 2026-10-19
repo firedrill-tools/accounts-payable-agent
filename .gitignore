@@ -9,3 +9,6 @@ dist/
 .runs/
 *.sqlite
 *.sqlite-*
+
+node_modules/
+.runs/

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "2026-10-14",
+  "name": "accounts-payable-agent \u2014 actual native application",
+  "target": {
+    "kind": "command",
+    "argv": [
+      "node",
+      "firedrill/target.mjs"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "starter",
+      "name": "Source-only invoice extraction",
+      "input": {
+        "caseId": "starter",
+        "action": "process"
+      }
+    },
+    {
+      "id": "unknown-vendor",
+      "name": "Unknown vendor remains subject to review",
+      "input": {
+        "caseId": "unknown-vendor",
+        "action": "process"
+      }
+    },
+    {
+      "id": "busy-inspection",
+      "name": "Inspect actual human-import accounting history",
+      "input": {
+        "caseId": "busy",
+        "action": "inspect"
+      }
+    }
+  ],
+  "repetitions": 1,
+  "concurrency": 1,
+  "limits": {
+    "timeoutMs": 240000,
+    "maxRuns": 3,
+    "maxOutputBytes": 4194304
+  }
+}

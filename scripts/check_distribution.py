@@ -166,6 +166,9 @@ with TemporaryDirectory(prefix="payables-distribution-") as directory:
         [UV, "sync", "--locked", "--no-dev", "--no-editable", "--project", str(source)],
         temp,
     )
+    assert (source/'firedrill/scenario.json').exists() and not (source/'firedrill/node_modules').exists()
+    run(['npm','ci','--prefix','firedrill','--ignore-scripts','--no-audit','--no-fund'],source)
+    run(['npm','test','--prefix','firedrill'],source)
     source_case = temp / "source-case"
     source_case.mkdir()
     exercise(source / ".venv/bin/python", source_case)

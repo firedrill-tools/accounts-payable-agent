@@ -1,6 +1,6 @@
 # Working rules
 
-Keep this a standalone synthetic Google ADK/Gemini accounts payable application. Never use credentials, real invoices or production accounting records in fixtures. No model approval/posting tools. No retired or guessed Firedrill integration; wait for the verified new release.
+Keep this a standalone synthetic Google ADK/Gemini accounts payable application. Never use credentials, real invoices or production accounting records in fixtures. No model approval/posting tools. No retired or guessed Firedrill integration; use only the documented released contract.
 
 ## Entry points and ownership
 
@@ -18,3 +18,7 @@ One durable extraction lease per source. Never reclaim on age, release another t
 ## Verification and claims
 
 Use the locked Python 3.12 environment. Run deterministic generation check, relevant pytest cases, build and `scripts/check_distribution.py` before delivery. Package all data; verify both fresh wheel and sdist outside checkout. Keep `.runs`, databases, `.env`, build artifacts and credentials out of Git. CI is offline. Controlled real SDK/HTTP or injected-model tests are not live Gemini proof. Preserve failure/usage/cleanup evidence and document external gates in PLAN.md.
+
+## Current Firedrill integration
+
+Released CLI/SDK 2.2.2, current command invocation, remote operator MCP and recovery are documented in [firedrill/README.md](firedrill/README.md). Offline checks exercise actual state and native key preflight; authenticated persisted runs and live quality/cost remain separate gates.
