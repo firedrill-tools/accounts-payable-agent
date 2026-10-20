@@ -1,6 +1,20 @@
-# Accounts payable assistant
+# Accounts payable agent with Google ADK and Gemini
 
 A standalone synthetic invoice desk built with [Google ADK](https://adk.dev/) and Gemini. The model extracts facts from one inbox item. SQLite code matches vendors and purchase orders; a named human reviews the original source and approves before a separate command can post to the synthetic ledger. This application does not transfer money or connect to accounting services.
+
+## Simulate with Firedrill
+
+[Firedrill](https://firedrill.run/) is a simulation platform for AI agents.
+Start from this repository’s root:
+
+```sh
+npx firedrill-run init
+```
+
+Sign in and choose your project, then follow the [simulation run guide](firedrill/README.md)
+for application dependencies, a preview and the reviewed scenarios. Your agent runs
+locally or in your CI; model credentials stay separate from Firedrill sign-in.
+The included recipes record outcomes without an automatic quality score or CI gate.
 
 ## Start with an offline case
 
@@ -79,7 +93,7 @@ uv run --locked python scripts/check_distribution.py
 
 Offline checks exercise actual ADK/Gemini HTTP over controlled transports and real CLI loopback servers, concurrent ownership/posting, cancellation/signals, recording faults, immutable review/ledger state, all twelve fixtures and fresh locked wheel/sdist installs outside the checkout. They do not establish live Gemini accuracy, billing or real financial behavior. No credentials or production records belong in fixtures.
 
-Live extraction quality requires owner-supplied model/key/budget and human review. The new released Firedrill interface and its persisted ordinary, negative and recovery runs remain external gates. No retired API or guessed integration is included. [PLAN.md](PLAN.md) tracks completed work and those gates. This repository remains private pending publication and license decisions.
+Live extraction quality requires owner-supplied model/key/budget and human review. Authenticated persisted ordinary, negative and recovery Firedrill runs remain external gates. No retired API or guessed integration is included. [PLAN.md](PLAN.md) tracks completed work and those gates. This repository remains private pending publication and license decisions.
 
 Explore the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog), [Firedrill](https://firedrill.run/) and [official developer documentation](https://docs.firedrill.run/). Currency exponents use the [SIX ISO 4217 list](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml), published 2026-09-17; the source digest and qualified SDK versions are recorded in [COMPATIBILITY.md](COMPATIBILITY.md).
 
