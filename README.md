@@ -97,7 +97,7 @@ Offline checks exercise actual ADK/Gemini HTTP over controlled transports and re
 
 Live extraction quality requires owner-supplied model/key/budget and human review. Authenticated persisted ordinary, negative and recovery Firedrill runs remain external gates. No retired API or guessed integration is included. [PLAN.md](PLAN.md) tracks completed work and those gates. This repository is publicly viewable; no project license has been selected.
 
-Explore the [Firedrill example catalog](https://github.com/firedrill-tools/firedrill-example-catalog), [Firedrill](https://firedrill.run/) and [official developer documentation](https://docs.firedrill.run/). Currency exponents use the [SIX ISO 4217 list](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml), published 2026-09-17; the source digest and qualified SDK versions are recorded in [COMPATIBILITY.md](COMPATIBILITY.md).
+Explore the [Firedrill examples](https://docs.firedrill.run/guides/examples), [Firedrill](https://firedrill.run/) and [official developer documentation](https://docs.firedrill.run/). Currency exponents use the [SIX ISO 4217 list](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml), published 2026-09-17; the source digest and qualified SDK versions are recorded in [COMPATIBILITY.md](COMPATIBILITY.md).
 
 ## Current Firedrill integration
 
